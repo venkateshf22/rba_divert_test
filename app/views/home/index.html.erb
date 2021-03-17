@@ -19,9 +19,9 @@
     <td><%=menu.title%></td>
     <% if current_user&.role == "super_admin" %>
       <td><a href="/menus/edit/<%=menu.id%>">Edit</a></td>
-    <% else %>
-      <td><a href="/cart/add/<%=menu.id%>">Add to Cart</a></td>
     <% end %>
+
+    <td><a href="/cart/add/<%=menu.id%>">Add to Cart</a></td>
     </tr>
   <%end%>
 </table>

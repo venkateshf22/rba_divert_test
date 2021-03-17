@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
 gem 'devise'
+gem 'rest-client'
+gem 'mailgun-ruby'
 # gem 'byebug'
 
 # Use Active Storage variant
