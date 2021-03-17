@@ -1,0 +1,29 @@
+<p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
+
+<%=@message%>
+
+<br>
+<h2>Menu</h2>
+<table>
+  <%@menus.each do |menu|%>
+    <tr>
+    <td><%=menu.title%></td>
+    <% if current_user&.role == "super_admin" %>
+      <td><a href="/menus/edit/<%=menu.id%>">Edit</a></td>
+    <% else %>
+      <td><a href="/cart/add/<%=menu.id%>">Add to Cart</a></td>
+    <% end %>
+    </tr>
+  <%end%>
+</table>
+
+

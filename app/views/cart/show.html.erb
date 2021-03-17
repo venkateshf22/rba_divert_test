@@ -1,0 +1,28 @@
+<p class="notice"><%= @message %></p>
+<br>
+<h2>Cart</h2>
+<table>
+  <%@cart_items.each do |cart|%>
+    <tr>
+    <td><%=cart.menu.title%></td>
+    <td><a href="/cart/remove/<%=cart.id%>">Remove</a></td>
+    </tr>
+  <%end%>
+</table>
+
+
+  <%if @cart_items.any?%>
+  <br>
+  <h2>Checkout</h2>
+  <form action="/checkout" method="post">
+  <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+    Address: <input type="text" name="address" >
+    <br>City: <input type="text" name="city">  
+    <br>Country: <input type="text" name="country" >
+    <br>Phone: <input type="number" name="phone" >
+    <!-- other inputs here -->
+    <br>
+    <br>
+    <input type="submit" value="Checkout">
+  </form>
+  <%end%>

@@ -1,0 +1,37 @@
+Order created!
+
+<br>
+<h2>Order</h2>
+<table>
+  <tr>
+    <td>Address: </td>
+    <td><%=@order.address%></td>
+  </tr>
+
+  <tr>
+    <td>City: </td>
+    <td><%=@order.city%></td>
+  </tr>
+
+  <tr>
+    <td>Country: </td>
+    <td><%=@order.country%></td>
+  </tr>
+
+  <tr>
+    <td>Phone: </td>
+    <td><%=@order.phone%></td>
+  </tr>
+</table>
+
+<br>
+<h2>Cart Items</h2>
+<table>
+<%@order.carts.each do |cart_item|%>
+    <tr>
+    <td><%=cart_item.menu.title%></td>
+    <td><%=cart_item.menu.image%></td>
+    <td><%=cart_item.menu.description%></td>
+    </tr>
+  <%end%>
+</table>

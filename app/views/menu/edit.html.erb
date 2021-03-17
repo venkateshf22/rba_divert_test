@@ -1,0 +1,13 @@
+<h2>Update <%=@menu.title%></h2>
+
+<p class="notice"><%= @message %></p>
+
+<form action="/menus/edit/<%=@menu.id%>" method="post">
+  <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+  Name: <input type="text" name="title" value="<%=@menu.title%>">
+  <br>Image: <input type="text" name="image" value="<%=@menu.image%>">  
+  <br>Description: <input type="text" name="description" value="<%=@menu.description%>">
+  <br>Price: <input type="number" name="price" value="<%=@menu.price%>">
+  <!-- other inputs here -->
+  <br><input type="submit" value="Submit ">
+</form>
